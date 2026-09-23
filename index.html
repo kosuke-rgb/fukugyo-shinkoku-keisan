@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>副業の確定申告 要否チェッカー</title>
+<meta name="description" content="副業の収入・経費を入れるだけで、いわゆる「20万円ルール」にもとづいて所得税の確定申告が必要かどうかを判定できる無料ツールです。住民税の申告についての注意点もわかります。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://webtools-labs.com/fukugyo-shinkoku-keisan/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2370765779014113" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NKK5TXCQEK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NKK5TXCQEK');
+</script>
+<script>
+(function () {
+  var fired = false;
+  function fireOnce() {
+    if (fired) return;
+    fired = true;
+    if (typeof gtag === 'function') gtag('event', 'tool_used', { tool_name: document.title });
+  }
+  document.addEventListener('input', fireOnce, true);
+  document.addEventListener('change', fireOnce, true);
+})();
+</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230f766e'/%3E%3Ctext x='50' y='68' font-size='60' text-anchor='middle' fill='white' font-family='sans-serif'%3E%EF%BF%A5%3C/text%3E%3C/svg%3E">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="webtools-labs">
+<meta property="og:title" content="副業の確定申告 要否チェッカー">
+<meta property="og:description" content="副業の収入・経費を入れるだけで「20万円ルール」にもとづく確定申告の要否を判定できます。">
+<meta property="og:url" content="https://webtools-labs.com/fukugyo-shinkoku-keisan/">
+<meta property="og:image" content="https://webtools-labs.com/fukugyo-shinkoku-keisan/og-image.png">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="副業の確定申告 要否チェッカー">
+<meta name="twitter:description" content="副業の所得が20万円を超えるかをすぐ判定できる無料ツール。住民税の申告についての注意点も解説。">
+<meta name="twitter:image" content="https://webtools-labs.com/fukugyo-shinkoku-keisan/og-image.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "副業の確定申告 要否チェッカー",
+  "url": "https://webtools-labs.com/fukugyo-shinkoku-keisan/",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "description": "副業の収入・経費を入れるだけで、いわゆる「20万円ルール」にもとづいて所得税の確定申告が必要かどうかを判定できる無料ツール。",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
+  "inLanguage": "ja"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "副業の所得が20万円以下なら確定申告は一切不要ですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "いいえ。所得税の確定申告は原則不要になりますが、住民税の申告は別途必要です。住民税には「20万円以下なら申告不要」という特例がないため、確定申告をしない場合はお住まいの市区町村へ別途申告する必要があります。" }
+    },
+    {
+      "@type": "Question",
+      "name": "「所得」と「収入」はどう違うんですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "収入は副業で受け取った金額の合計、所得は収入から必要経費を差し引いた金額です。20万円ルールで判定するのは基本的に「所得」の方ですが、掛け持ちバイトなどの給与所得の場合は例外的に、経費を差し引く前の収入金額そのもので判定します。" }
+    },
+    {
+      "@type": "Question",
+      "name": "掛け持ちバイトの給与も同じ20万円ルールですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "掛け持ち等の給与所得の場合は、年末調整されなかった給与の収入金額と他の所得の合計額で20万円を判定します。雑所得・事業所得のように必要経費を差し引けない点が異なります。" }
+    },
+    {
+      "@type": "Question",
+      "name": "ふるさと納税をしていても20万円以下なら申告不要ですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "ワンストップ特例を使わずに確定申告でふるさと納税の控除を受ける場合は、そもそも確定申告をすることになるため、20万円ルールに関係なく副業の所得もすべて申告する必要があります。医療費控除を受ける場合も同様です。" }
+    },
+    {
+      "@type": "Question",
+      "name": "20万円ルールで所得税の申告をしなかった場合、住民税の申告はどうすればいいですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "お住まいの市区町村役所の住民税担当窓口に、副業の所得について別途申告書を提出する必要があります。確定申告をした場合はその内容が自治体にも共有されるため、別途の住民税申告は不要になります。" }
+    },
+    {
+      "@type": "Question",
+      "name": "20万円を超えているのに申告しないとどうなりますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "無申告加算税や延滞税といったペナルティが課される可能性があります。副業の収入について取引先から税務署へ支払調書等が提出されているケースもあり、無申告が発覚することがあります。" }
+    },
+    {
+      "@type": "Question",
+      "name": "学生でも副業(アルバイト以外の収入)があれば対象になりますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "はい。学生でも給与所得以外の副業所得(フリマの継続的な販売、ブログ収益、単発の業務委託など)が20万円を超えれば、原則として確定申告が必要です。扶養から外れるかどうかは別の基準なので、あわせて「扶養の壁チェッカー」もご確認ください。" }
+    }
+  ]
+}
+</script>
+<style>
+:root {
+  --bg: #ffffff;
+  --surface-2: #f7f7f7;
+  --ink: #1a1a1a;
+  --muted: #767676;
+  --line: #e3e3e3;
+  --accent: #0f766e;
+  --best-bg: #f0f8f6;
+  --warn-bg: #fff7ed;
+  --warn-ink: #9a5b00;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+.page { max-width: 720px; margin: 0 auto; padding: 3rem 1.25rem 4rem; }
+header.masthead { margin-bottom: 1.5rem; }
+h1 {
+  font-weight: 700;
+  font-size: clamp(1.4rem, 4.5vw, 1.7rem);
+  margin: 0 0 0.7rem;
+  letter-spacing: 0.01em;
+}
+p.lede { color: var(--muted); margin: 0; max-width: 60ch; font-size: 0.95rem; }
+.updated-note { display: block; margin-top: 0.9rem; font-size: 0.78rem; color: var(--muted); }
+
+.notice-box {
+  background: var(--warn-bg); color: var(--warn-ink); border-radius: 8px;
+  padding: 0.9rem 1.1rem; font-size: 0.85rem; margin-bottom: 2rem;
+}
+
+section { margin-bottom: 2.5rem; }
+h2 { font-size: 1.05rem; font-weight: 700; margin: 0 0 1rem; }
+
+.field-row { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.25rem; }
+.field { flex: 1; min-width: 160px; }
+.field label { display: block; font-size: 0.83rem; color: var(--muted); margin-bottom: 0.35rem; }
+.field input[type="number"], .field select {
+  width: 100%; font-variant-numeric: tabular-nums; font-size: 1.05rem; font-family: inherit;
+  padding: 0.55rem 0.7rem; border: 1px solid var(--line); border-radius: 6px;
+  background: var(--bg); color: var(--ink);
+}
+.field input:focus, .field select:focus { outline: none; border-color: var(--accent); }
+.field-hint { font-size: 0.76rem; color: var(--muted); margin-top: 0.3rem; }
+
+.check-row { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1.25rem; font-size: 0.86rem; }
+.check-row input { margin-top: 0.2rem; }
+
+.summary-cards { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; }
+.summary-card {
+  flex: 1; min-width: 180px; background: var(--best-bg); border-radius: 10px;
+  padding: 1rem 1.2rem;
+}
+.summary-card.warn { background: var(--warn-bg); }
+.summary-card .label { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.3rem; }
+.summary-card .value { font-size: 1.4rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.summary-card .sub { font-size: 0.78rem; color: var(--muted); margin-top: 0.2rem; }
+
+table.compare { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+table.compare th, table.compare td {
+  padding: 0.55rem 0.5rem; text-align: right; border-bottom: 1px solid var(--line); vertical-align: top;
+}
+table.compare th:first-child, table.compare td:first-child { text-align: left; }
+table.compare thead th { color: var(--muted); font-weight: 500; font-size: 0.78rem; }
+table.compare td.num { font-variant-numeric: tabular-nums; }
+tr.best td { font-weight: 700; }
+tr.best { background: var(--best-bg); }
+tr.na td { color: var(--muted); }
+
+.ref-table { overflow-x: auto; }
+.ref-table table { width: 100%; border-collapse: collapse; font-size: 0.86rem; min-width: 460px; }
+.ref-table th, .ref-table td { padding: 0.5rem 0.5rem; border-bottom: 1px solid var(--line); text-align: left; }
+.ref-table td.num { font-variant-numeric: tabular-nums; text-align: right; }
+
+.disclaimer { font-size: 0.78rem; color: var(--muted); margin-top: 1rem; }
+
+.share-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.1rem; }
+.share-btn {
+  display: inline-flex; align-items: center; padding: 0.5rem 1rem; border-radius: 999px;
+  color: #fff; text-decoration: none; font-size: 0.82rem; font-weight: 700;
+}
+.share-btn:hover { opacity: 0.85; }
+.share-x { background: #000; }
+.share-line { background: #06c755; }
+.share-fb { background: #1877f2; }
+.share-hatena { background: #00a4de; }
+
+.ad-slot { margin: 2.5rem 0; text-align: center; min-height: 100px; }
+
+.pr-box {
+  border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 10px;
+  padding: 1.2rem 1.3rem; margin: 2.5rem 0; background: var(--best-bg);
+}
+.pr-box .pr-label {
+  display: inline-flex; align-items: center; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.04em;
+  color: #fff; background: var(--accent); border-radius: 999px;
+  padding: 0.2rem 0.7rem; margin-bottom: 0.8rem;
+}
+.pr-box p.pr-lede { color: var(--ink); font-size: 0.92rem; margin: 0 0 1rem; max-width: none; line-height: 1.7; }
+.pr-box .pr-banner { text-align: center; }
+
+.contact-box textarea {
+  width: 100%; min-height: 6rem; font-family: inherit; font-size: 0.92rem;
+  padding: 0.7rem; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink);
+  resize: vertical; margin-bottom: 0.6rem;
+}
+.contact-box input[type="email"] {
+  width: 100%; font-family: inherit; font-size: 0.92rem;
+  padding: 0.6rem 0.7rem; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink);
+  margin-bottom: 0.6rem;
+}
+.contact-box textarea:focus, .contact-box input:focus { outline: none; border-color: var(--accent); }
+.contact-box button {
+  font-family: inherit; font-weight: 700; font-size: 0.9rem; padding: 0.6rem 1.4rem;
+  border: none; border-radius: 6px; background: var(--accent); color: #fff; cursor: pointer;
+}
+.contact-box button:disabled { opacity: 0.5; cursor: not-allowed; }
+.contact-status { font-size: 0.85rem; margin-top: 0.6rem; }
+.contact-status.ok { color: var(--accent); }
+.contact-status.err { color: #b91c1c; }
+
+footer.site-footer {
+  margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--line);
+  font-size: 0.78rem; color: var(--muted);
+}
+footer.site-footer p { margin: 0 0 0.5rem; }
+footer.site-footer a { color: var(--accent); }
+
+.faq-item { border-bottom: 1px solid var(--line); padding: 0.9rem 0; }
+.faq-item:last-child { border-bottom: none; }
+.faq-item summary {
+  cursor: pointer; font-weight: 700; font-size: 0.92rem; list-style: none;
+  position: relative; padding-right: 1.6rem;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+'; position: absolute; right: 0; top: 0; color: var(--accent); font-weight: 700; font-size: 1.1rem;
+}
+.faq-item[open] summary::after { content: '−'; }
+.faq-item p { margin: 0.7rem 0 0; color: var(--muted); font-size: 0.88rem; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="masthead">
+    <h1>副業の確定申告 要否チェッカー</h1>
+    <p class="lede">副業の収入・経費を入力するだけで、いわゆる「20万円ルール」にもとづいて所得税の確定申告が必要かどうかをすぐ判定します。住民税の申告についての注意点もあわせて確認できます。</p>
+    <span class="updated-note">基準 最終確認日: 2026年9月23日（国税庁 タックスアンサー No.1900 にもとづく）</span>
+  </header>
+
+  <div class="notice-box">
+    ⚠️ 本ツールは、会社員(給与所得者)が副業をしている場合の一般的な「20万円ルール」の目安を判定するものです。本業がフリーランス・個人事業主の方や、医療費控除・ふるさと納税(ワンストップ特例未使用)などで元々確定申告をする予定がある方は判定基準が異なります。正確な要否は税務署または税理士にご確認ください。
+  </div>
+
+  <section>
+    <h2>副業の「20万円ルール」とは</h2>
+    <p>会社員の多くは、勤務先の年末調整で所得税の精算が完了するため確定申告は不要です。ただし、給与以外に副業などの所得があり、その合計額が年間20万円を超える場合は、原則として所得税の確定申告が必要になります。これが一般的に「20万円ルール」と呼ばれているものです。</p>
+    <p>ここで判定に使うのは、副業の「収入」そのものではなく、収入から必要経費を差し引いた「所得」の金額です。たとえばクラウドソーシングやフリマアプリなどの副業で30万円の収入があっても、経費が11万円かかっていれば所得は19万円となり、20万円以下におさまることもあります。ただし、掛け持ちバイトのように「給与」として受け取る副業収入は、経費を差し引く前の収入金額そのもので判定される点が異なります。</p>
+    <p>また、20万円以下で所得税の確定申告が不要になったとしても、住民税の申告は別に必要になる点が見落とされがちです。所得税の「20万円以下は申告不要」という特例は住民税には適用されないため、確定申告をしない場合は、お住まいの市区町村へ別途申告する必要があります。</p>
+  </section>
+
+  <section>
+    <h2>あなたの状況を入力</h2>
+    <div class="field-row">
+      <div class="field">
+        <label for="incomeType">副業の所得の種類</label>
+        <select id="incomeType">
+          <option value="zatsu">雑所得・事業所得（業務委託・フリマ・ブログ収益など）</option>
+          <option value="kyuyo">給与所得（掛け持ちバイトなど、別の会社からの給与）</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="income">副業の年間収入（円）</label>
+        <input type="number" id="income" min="0" step="10000" value="300000">
+      </div>
+      <div class="field" id="expenseField">
+        <label for="expense">副業でかかった年間経費（円）</label>
+        <input type="number" id="expense" min="0" step="10000" value="50000">
+      </div>
+    </div>
+
+    <label class="check-row">
+      <input type="checkbox" id="alreadyFiling">
+      <span>ふるさと納税（ワンストップ特例を使わない）や医療費控除などで、もともと確定申告をする予定がある</span>
+    </label>
+
+    <div class="summary-cards" id="summaryCards"></div>
+
+    <div style="overflow-x:auto">
+      <table class="compare">
+        <thead>
+          <tr><th>項目</th><th class="num">金額・判定</th></tr>
+        </thead>
+        <tbody id="resultBody"></tbody>
+      </table>
+    </div>
+    <p class="disclaimer">本ツールは会社員が副業をしている場合の一般的な判定を簡易的に示すものです。本業の給与収入が2,000万円を超える場合や、副業側が本業(個人事業主等)である場合など、判定基準が異なるケースがあります。正確な要否は国税庁や税務署にご確認ください。</p>
+    <div class="share-row" id="shareRow">
+      <a class="share-btn share-x" id="shareX" href="#" target="_blank" rel="noopener">𝕏でシェア</a>
+      <a class="share-btn share-line" id="shareLine" href="#" target="_blank" rel="noopener">LINEで送る</a>
+      <a class="share-btn share-fb" id="shareFb" href="#" target="_blank" rel="noopener">Facebookでシェア</a>
+      <a class="share-btn share-hatena" id="shareHatena" href="#" target="_blank" rel="noopener">はてブする</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>副業パターン別の判定例</h2>
+    <div class="ref-table">
+      <table>
+        <thead><tr><th>パターン</th><th class="num">収入</th><th class="num">経費</th><th class="num">判定に使う金額</th><th>結果</th></tr></thead>
+        <tbody>
+          <tr><td>クラウドソーシング等の雑所得</td><td class="num">30万円</td><td class="num">5万円</td><td class="num">25万円</td><td>確定申告が必要（20万円超）</td></tr>
+          <tr><td>単発バイトの給与所得（掛け持ち）</td><td class="num">15万円</td><td class="num">－（控除なし）</td><td class="num">15万円</td><td>所得税の申告は原則不要（住民税の申告は必要）</td></tr>
+          <tr><td>フリマアプリの継続的な販売（雑所得）</td><td class="num">12万円</td><td class="num">3万円</td><td class="num">9万円</td><td>所得税の申告は原則不要（住民税の申告は必要）</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="disclaimer">給与所得（掛け持ちバイト等）の場合は、必要経費を差し引かず収入金額そのもので20万円を判定します。雑所得・事業所得は、収入から必要経費を差し引いた「所得」で判定します。</p>
+  </section>
+
+  <div class="ad-slot">
+    <ins class="adsbygoogle"
+      style="display:block"
+      data-ad-client="ca-pub-2370765779014113"
+      data-ad-slot="3021985784"
+      data-ad-format="auto"
+      data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <div class="pr-box">
+    <span class="pr-label">PR</span>
+    <p class="pr-lede">副業の所得を管理するなら、経費の記録や確定申告書の作成が楽になる会計ソフトを使うのもおすすめです。日々の支払いの還元率も、年会費無料のカードで見直してみませんか。</p>
+    <div class="pr-banner">
+      <script type='text/javascript' src='https://ad-verification.a8.net/ad/js/brandsafe.js'></script>
+      <div id='div_admane_async_1734_658_2972'>
+      <script type='text/javascript'>
+      <!--
+      brandsafe_js_async('//ad-verification.a8.net/ad', '_site=1734&_article=658&_link=2972&_image=3219&_ns=1&sad=s00000015110002', '260907514413', '4BC5IY+6TW2E2+38L8+BXYE9');
+      //-->
+      </script>
+      </div>
+      <img border="0" width="1" height="1" src="https://www13.a8.net/0.gif?a8mat=4BC5IY+6TW2E2+38L8+BXYE9" alt="">
+    </div>
+  </div>
+
+  <section>
+    <h2>よくある質問</h2>
+    <details class="faq-item">
+      <summary>副業の所得が20万円以下なら確定申告は一切不要ですか？</summary>
+      <p>いいえ。所得税の確定申告は原則不要になりますが、住民税の申告は別途必要です。住民税には「20万円以下なら申告不要」という特例がないため、確定申告をしない場合はお住まいの市区町村へ別途申告する必要があります。</p>
+    </details>
+    <details class="faq-item">
+      <summary>「所得」と「収入」はどう違うんですか？</summary>
+      <p>収入は副業で受け取った金額の合計、所得は収入から必要経費を差し引いた金額です。20万円ルールで判定するのは基本的に「所得」の方ですが、掛け持ちバイトなどの給与所得の場合は例外的に、経費を差し引く前の収入金額そのもので判定します。</p>
+    </details>
+    <details class="faq-item">
+      <summary>掛け持ちバイトの給与も同じ20万円ルールですか？</summary>
+      <p>掛け持ち等の給与所得の場合は、年末調整されなかった給与の収入金額と他の所得の合計額で20万円を判定します。雑所得・事業所得のように必要経費を差し引けない点が異なります。</p>
+    </details>
+    <details class="faq-item">
+      <summary>ふるさと納税をしていても20万円以下なら申告不要ですか？</summary>
+      <p>ワンストップ特例を使わずに確定申告でふるさと納税の控除を受ける場合は、そもそも確定申告をすることになるため、20万円ルールに関係なく副業の所得もすべて申告する必要があります。医療費控除を受ける場合も同様です。</p>
+    </details>
+    <details class="faq-item">
+      <summary>20万円ルールで所得税の申告をしなかった場合、住民税の申告はどうすればいいですか？</summary>
+      <p>お住まいの市区町村役所の住民税担当窓口に、副業の所得について別途申告書を提出する必要があります。確定申告をした場合はその内容が自治体にも共有されるため、別途の住民税申告は不要になります。</p>
+    </details>
+    <details class="faq-item">
+      <summary>20万円を超えているのに申告しないとどうなりますか？</summary>
+      <p>無申告加算税や延滞税といったペナルティが課される可能性があります。副業の収入について取引先から税務署へ支払調書等が提出されているケースもあり、無申告が発覚することがあります。</p>
+    </details>
+    <details class="faq-item">
+      <summary>学生でも副業(アルバイト以外の収入)があれば対象になりますか？</summary>
+      <p>はい。学生でも給与所得以外の副業所得(フリマの継続的な販売、ブログ収益、単発の業務委託など)が20万円を超えれば、原則として確定申告が必要です。扶養から外れるかどうかは別の基準なので、あわせて「扶養の壁チェッカー」もご確認ください。</p>
+    </details>
+  </section>
+
+  <section class="contact-box">
+    <h2>ご意見・追加してほしい機能</h2>
+    <p class="lede" style="margin-bottom:0.9rem;">気づいたことや、あったら便利な機能があれば教えてください。</p>
+    <form id="contactForm">
+      <input type="email" id="contactEmail" placeholder="返信が必要な場合はメールアドレス（任意）">
+      <textarea id="contactMessage" placeholder="ご意見・ご要望をどうぞ" required></textarea>
+      <button type="submit" id="contactSubmit">送信する</button>
+      <p class="contact-status" id="contactStatus"></p>
+    </form>
+  </section>
+
+  <footer class="site-footer">
+    <p>本ツールは一般的な会社員(給与所得者)の副業を想定した簡易判定であり、税務上のアドバイスではありません。個々の状況によって判定が異なる場合があるため、正確な要否は税務署・税理士にご確認ください。</p>
+    <p>あわせて使える：
+      <a href="https://webtools-labs.com/furima-hikaku-keisan/">フリマ手数料計算・比較ツール</a> ／
+      <a href="https://webtools-labs.com/furima-hasso-hikaku/">フリマ配送方法・送料比較ツール</a> ／
+      <a href="https://webtools-labs.com/furima-tedori-simulator/">フリマ手取りシミュレーター</a> ／
+      <a href="https://webtools-labs.com/yukyu-hiyou-keisan/">有給休暇 付与日数計算ツール</a> ／
+      <a href="https://webtools-labs.com/revolving-risoku-keisan/">リボ払い・分割払い 実質利息計算ツール</a> ／
+      <a href="https://webtools-labs.com/taishoku-yukyu-keisan/">退職時の有給消化シミュレーター</a> ／
+      <a href="https://webtools-labs.com/fuyou-no-kabe-keisan/">扶養の壁チェッカー</a> ／
+      <a href="https://webtools-labs.com/tedori-keisan/">手取り計算ツール</a> ／
+      <a href="https://webtools-labs.com/taishokukin-zei-keisan/">退職金の税金計算ツール</a> ／
+      <a href="https://webtools-labs.com/sankyu-ikuji-teate-keisan/">産休・育休手当金シミュレーター</a> ／
+      <a href="https://webtools-labs.com/zangyodai-keisan/">残業代計算ツール</a> ／
+      <a href="https://webtools-labs.com/shitsugyo-hoken-keisan/">失業保険（基本手当）シミュレーター</a> ／
+      <a href="https://webtools-labs.com/jikyu-nenshu-keisan/">時給から年収・月収を計算</a> ／
+      <a href="https://webtools-labs.com/yubin-kitte-keisan/">郵便物の切手代早見表</a> ／
+      <a href="https://webtools-labs.com/bonus-tedori-keisan/">賞与手取り計算ツール</a> ／
+      <a href="https://webtools-labs.com/shoubyou-teate-keisan/">傷病手当金計算ツール</a> ／
+      <a href="https://webtools-labs.com/juminzei-keisan/">住民税計算ツール</a> ／
+      <a href="https://webtools-labs.com/tsukin-teate-keisan/">通勤手当の非課税限度額計算ツール</a> ／
+      <a href="https://webtools-labs.com/tedori-gyakusan-keisan/">手取りから逆算する年収計算ツール</a> ／
+      <a href="https://webtools-labs.com/shakaihoken-uchiwake-keisan/">給与の社会保険料 内訳計算ツール</a>
+    </p>
+    <p>当サイトは広告を掲載する場合があります。</p>
+    <p><a href="https://webtools-labs.com/about/">運営者情報</a> ／ <a href="https://webtools-labs.com/privacy/">プライバシーポリシー</a></p>
+  </footer>
+</div>
+
+<script>
+(function () {
+  function yen(n) { return Math.round(n).toLocaleString('ja-JP') + '円'; }
+
+  var THRESHOLD = 200000; // 所得税確定申告が必要になる「20万円ルール」の基準額
+
+  function calc(incomeType, income, expense, alreadyFiling) {
+    var kingaku = incomeType === 'kyuyo' ? income : Math.max(0, income - expense);
+    var needsFiling = alreadyFiling || kingaku > THRESHOLD;
+    return { incomeType: incomeType, income: income, expense: expense, kingaku: kingaku, needsFiling: needsFiling, alreadyFiling: alreadyFiling };
+  }
+
+  var incomeTypeSelect = document.getElementById('incomeType');
+  var incomeInput = document.getElementById('income');
+  var expenseInput = document.getElementById('expense');
+  var expenseField = document.getElementById('expenseField');
+  var alreadyFilingCheckbox = document.getElementById('alreadyFiling');
+  var summaryCards = document.getElementById('summaryCards');
+  var resultBody = document.getElementById('resultBody');
+  var shareX = document.getElementById('shareX');
+  var shareLine = document.getElementById('shareLine');
+  var shareFb = document.getElementById('shareFb');
+  var shareHatena = document.getElementById('shareHatena');
+
+  function setShareLinks(text, url) {
+    shareX.href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(url);
+    shareLine.href = 'https://line.me/R/msg/text/?' + encodeURIComponent(text + '\n' + url);
+    shareFb.href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url) + '&quote=' + encodeURIComponent(text);
+    shareHatena.href = 'https://b.hatena.ne.jp/entry/panel/?url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(text);
+  }
+
+  function render() {
+    var incomeType = incomeTypeSelect.value;
+    expenseField.style.display = incomeType === 'kyuyo' ? 'none' : '';
+
+    var income = Math.max(0, Number(incomeInput.value) || 0);
+    var expense = incomeType === 'kyuyo' ? 0 : Math.max(0, Number(expenseInput.value) || 0);
+    var alreadyFiling = alreadyFilingCheckbox.checked;
+    var r = calc(incomeType, income, expense, alreadyFiling);
+
+    summaryCards.innerHTML =
+      '<div class="summary-card ' + (r.needsFiling ? 'warn' : '') + '"><div class="label">所得税の確定申告</div><div class="value">' + (r.needsFiling ? '必要' : '原則不要') + '</div><div class="sub">' + (r.alreadyFiling ? '他の理由で確定申告予定のため' : (incomeType === 'kyuyo' ? '副業の給与収入で判定' : '副業の所得(収入-経費)で判定')) + '</div></div>' +
+      '<div class="summary-card"><div class="label">判定に使う金額</div><div class="value">' + yen(r.kingaku) + '</div><div class="sub">基準額 ' + yen(THRESHOLD) + '</div></div>';
+
+    var rows = [
+      ['副業の年間収入', yen(r.income)],
+      incomeType === 'kyuyo' ? ['副業の必要経費', '控除なし(給与所得のため)'] : ['副業の年間経費', yen(r.expense)],
+      [incomeType === 'kyuyo' ? '判定に使う収入金額' : '副業の所得金額（収入－経費）', yen(r.kingaku)],
+      ['判定基準', yen(THRESHOLD)],
+      ['所得税の確定申告', r.needsFiling ? '必要' : '原則不要'],
+      ['住民税の申告', '原則必要（20万円以下でも特例なし）']
+    ];
+    resultBody.innerHTML = rows.map(function (row, i) {
+      var isLast = i === rows.length - 1;
+      return '<tr class="' + (isLast ? 'best' : '') + '"><td>' + row[0] + '</td><td class="num">' + row[1] + '</td></tr>';
+    }).join('');
+
+    var shareText = '副業の所得' + yen(r.kingaku) + 'は、所得税の確定申告が' + (r.needsFiling ? '必要でした' : '原則不要でした（住民税の申告は別途必要）') + '\n\n副業の確定申告 要否チェッカー';
+    setShareLinks(shareText, 'https://webtools-labs.com/fukugyo-shinkoku-keisan/');
+  }
+
+  incomeTypeSelect.addEventListener('change', render);
+  incomeInput.addEventListener('input', render);
+  expenseInput.addEventListener('input', render);
+  alreadyFilingCheckbox.addEventListener('change', render);
+
+  render();
+
+  var WEB3FORMS_ACCESS_KEY = '4551c9fd-4327-4bd4-97e0-8b93d85fd077';
+  var contactForm = document.getElementById('contactForm');
+  var contactStatus = document.getElementById('contactStatus');
+  var contactSubmit = document.getElementById('contactSubmit');
+
+  contactForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    contactSubmit.disabled = true;
+    contactStatus.textContent = '送信中...';
+    contactStatus.className = 'contact-status';
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        access_key: WEB3FORMS_ACCESS_KEY,
+        subject: '副業の確定申告 要否チェッカーへのお問い合わせ',
+        email: document.getElementById('contactEmail').value || 'noreply@example.com',
+        message: document.getElementById('contactMessage').value
+      })
+    }).then(function (res) { return res.json(); }).then(function (data) {
+      contactSubmit.disabled = false;
+      if (data.success) {
+        contactStatus.textContent = '送信しました。ありがとうございます！';
+        contactStatus.className = 'contact-status ok';
+        contactForm.reset();
+      } else {
+        contactStatus.textContent = '送信に失敗しました。時間をおいて再度お試しください。';
+        contactStatus.className = 'contact-status err';
+      }
+    }).catch(function () {
+      contactSubmit.disabled = false;
+      contactStatus.textContent = '送信に失敗しました。時間をおいて再度お試しください。';
+      contactStatus.className = 'contact-status err';
+    });
+  });
+})();
+</script>
+</body>
+</html>
