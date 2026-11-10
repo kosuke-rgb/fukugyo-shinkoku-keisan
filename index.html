@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>副業の確定申告 要否チェッカー</title>
-<meta name="description" content="副業の収入・経費を入れるだけで、いわゆる「20万円ルール」にもとづいて所得税の確定申告が必要かどうかを判定できる無料ツールです。住民税の申告についての注意点もわかります。">
+<meta name="description" content="副業の収入・経費を入れるだけで、いわゆる「20万円ルール」にもとづいて所得税の確定申告が必要かどうかを判定できる無料ツールです。住民税の申告についての注意点もわかります。年末までにやっておくこと（収入の集計・計上する年・経費の整理）もまとめています。">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://webtools-labs.com/fukugyo-shinkoku-keisan/">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2370765779014113" crossorigin="anonymous"></script>
@@ -93,6 +93,16 @@
       "@type": "Question",
       "name": "学生でも副業(アルバイト以外の収入)があれば対象になりますか？",
       "acceptedAnswer": { "@type": "Answer", "text": "はい。学生でも給与所得以外の副業所得(フリマの継続的な販売、ブログ収益、単発の業務委託など)が20万円を超えれば、原則として確定申告が必要です。扶養から外れるかどうかは別の基準なので、あわせて「扶養の壁チェッカー」もご確認ください。" }
+    },
+    {
+      "@type": "Question",
+      "name": "12月に納品して、報酬の入金が翌年1月になる場合はどちらの年の収入ですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "原則として、仕事を納品して報酬の金額が確定した年の収入になるため、2026年12月に納品したなら2026年分です。ただし、前々年の業務の雑所得の収入が300万円以下の人は、実際に入金された日で計上する方法（現金主義）も選べます。この方法を使う場合は、確定申告書にその旨を書く必要があります。" }
+    },
+    {
+      "@type": "Question",
+      "name": "副業の所得が20万円以下でも、医療費控除で確定申告するなら副業の分も書きますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "はい。20万円以下なら申告しなくてよいのは、ほかに確定申告をしない場合だけです。医療費控除などで確定申告をするときは、20万円以下の副業の所得も含めて申告します。その分の税金が増えることもあるので、還付額は副業の所得を含めて計算しましょう。" }
     }
   ]
 }
@@ -272,7 +282,7 @@ footer.site-footer a { color: var(--accent); }
   <header class="masthead">
     <h1>副業の確定申告 要否チェッカー</h1>
     <p class="lede">副業の収入・経費を入力するだけで、いわゆる「20万円ルール」にもとづいて所得税の確定申告が必要かどうかをすぐ判定します。住民税の申告についての注意点もあわせて確認できます。</p>
-    <span class="updated-note">基準 最終確認日: 2026年9月23日（国税庁 <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1900.htm" target="_blank" rel="noopener">タックスアンサー No.1900</a> にもとづく）</span>
+    <span class="updated-note">基準 最終確認日: 2026年11月10日（国税庁 <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1900.htm" target="_blank" rel="noopener">タックスアンサー No.1900</a> にもとづく）</span>
     <p class="ad-disclosure" style="font-size:0.75rem;opacity:0.7;margin:0.5rem 0 0;">※当サイトはアフィリエイト広告（PR）を利用しています。</p>
   </header>
 
@@ -383,6 +393,24 @@ footer.site-footer a { color: var(--accent); }
   </section>
 
 
+  <section id="nenmatsu">
+    <h2>年末までにやっておくこと（2026年分の確定申告に向けて）</h2>
+    <p>2026年（令和8年）分の確定申告の期間は、<strong>2027年2月16日（火）〜3月15日（月）</strong>です。12月のうちに次のことを済ませておくと、20万円ルールの判定も申告書づくりもスムーズになります。</p>
+    <div class="ref-table" style="overflow-x:auto">
+      <table>
+        <thead><tr><th>やること</th><th>ポイント</th></tr></thead>
+        <tbody>
+          <tr><td>1〜12月の副業の収入を集める</td><td>クラウドソーシングやASPの報酬明細、取引先の支払調書、販売サイトの売上履歴などから、1年分の収入を合計します。</td></tr>
+          <tr><td>どの年の収入になるかを確認する</td><td>原則として、仕事を納品して報酬が確定した年の収入です。12月に納品して1月に入金される報酬も、原則は2026年分です。ただし、前々年（2024年）の業務の雑所得の収入が300万円以下の人は、実際にお金を受け取った日・支払った日で計上する方法（現金主義）も選べます（確定申告書にその旨の記載が必要）。</td></tr>
+          <tr><td>経費のレシート・領収書をまとめる</td><td>経費になるのは、副業の収入を得るためにかかった費用です。通信費やパソコン代のように私用と共用のものは、副業で使った割合の分だけを経費にします。</td></tr>
+          <tr><td>源泉徴収された税金を確認する</td><td>報酬から源泉徴収されている場合は、支払調書や明細で金額を控えておきます。確定申告で精算され、払いすぎていれば戻ってきます。</td></tr>
+          <tr><td>ほかに確定申告する理由がないか確認する</td><td>医療費控除や、ふるさと納税（寄附先が6自治体以上など）で確定申告をする場合は、副業の所得が20万円以下でも、その所得を含めて申告します。</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="disclaimer">出典: 国税庁 タックスアンサー No.1900（給与所得者で確定申告が必要な人）・No.1500（雑所得）。業務に係る雑所得の収入が300万円を超える人は、取引の書類（請求書・領収書など）の保存が必要です。</p>
+  </section>
+
   <div class="ad-slot">
     <ins class="adsbygoogle"
       style="display:block"
@@ -438,6 +466,14 @@ footer.site-footer a { color: var(--accent); }
     <details class="faq-item">
       <summary>学生でも副業(アルバイト以外の収入)があれば対象になりますか？</summary>
       <p>はい。学生でも給与所得以外の副業所得(フリマの継続的な販売、ブログ収益、単発の業務委託など)が20万円を超えれば、原則として確定申告が必要です。扶養から外れるかどうかは別の基準なので、あわせて「扶養の壁チェッカー」もご確認ください。</p>
+    </details>
+    <details class="faq-item">
+      <summary>12月に納品して、報酬の入金が翌年1月になる場合はどちらの年の収入ですか？</summary>
+      <p>原則として、仕事を納品して報酬の金額が確定した年の収入になるため、2026年12月に納品したなら2026年分です。ただし、前々年の業務の雑所得の収入が300万円以下の人は、実際に入金された日で計上する方法（現金主義）も選べます。この方法を使う場合は、確定申告書にその旨を書く必要があります。</p>
+    </details>
+    <details class="faq-item">
+      <summary>副業の所得が20万円以下でも、医療費控除で確定申告するなら副業の分も書きますか？</summary>
+      <p>はい。20万円以下なら申告しなくてよいのは、ほかに確定申告をしない場合だけです。医療費控除などで確定申告をするときは、20万円以下の副業の所得も含めて申告します。その分の税金が増えることもあるので、還付額は副業の所得を含めて計算しましょう。</p>
     </details>
   </section>
 
