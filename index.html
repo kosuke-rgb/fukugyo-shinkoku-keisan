@@ -193,7 +193,7 @@ tr.best { background: var(--best-bg); }
 tr.na td { color: var(--muted); }
 
 .ref-table { overflow-x: auto; }
-.ref-table table { width: 100%; border-collapse: collapse; font-size: 0.86rem; min-width: 460px; }
+.ref-table table { width: 100%; border-collapse: collapse; font-size: 0.86rem; min-width: 0; }
 .ref-table th, .ref-table td { padding: 0.5rem 0.5rem; border-bottom: 1px solid var(--line); text-align: left; }
 .ref-table td.num { font-variant-numeric: tabular-nums; text-align: right; }
 
@@ -274,6 +274,15 @@ footer.site-footer a { color: var(--accent); }
 .pr-box .pr-cta-wrap { text-align: center; margin: 0.9rem 0 0; }
 .pr-box .pr-cta-wrap .pr-cta { font-size: 0.95rem; padding: 0.75rem 1.6rem; box-shadow: 0 2px 6px rgba(0,0,0,0.12); }
 .pr-box .pr-cta:hover { opacity: 0.85; }
+/* スマホで表が画面からはみ出さないように（2026-11-17） */
+@media (max-width: 600px) {
+  .ref-table table { font-size: 0.8rem; }
+  .ref-table th, .ref-table td { padding: 0.45rem 0.3rem; }
+  .ref-table th, .ref-table td:first-child { white-space: normal; }
+  .ref-table td.nw { white-space: nowrap; }
+  .ref-table th:first-child, .ref-table td:first-child { min-width: 5em; position: sticky; left: 0; z-index: 1; background: var(--bg); box-shadow: 1px 0 0 var(--line); }
+  .ref-table tr.best td:first-child, .ref-table tr.total td:first-child, .ref-table tr.next td:first-child, .ref-table tr.highlight td:first-child { background: var(--best-bg, var(--bg)); }
+}
 </style>
 </head>
 <body>
@@ -356,9 +365,9 @@ footer.site-footer a { color: var(--accent); }
       <table>
         <thead><tr><th>パターン</th><th class="num">収入</th><th class="num">経費</th><th class="num">判定に使う金額</th><th>結果</th></tr></thead>
         <tbody>
-          <tr><td>クラウドソーシング等の雑所得</td><td class="num">30万円</td><td class="num">5万円</td><td class="num">25万円</td><td>確定申告が必要（20万円超）</td></tr>
-          <tr><td>単発バイトの給与所得（掛け持ち）</td><td class="num">15万円</td><td class="num">－（控除なし）</td><td class="num">15万円</td><td>所得税の申告は原則不要（住民税の申告は必要）</td></tr>
-          <tr><td>フリマアプリの継続的な販売（雑所得）</td><td class="num">12万円</td><td class="num">3万円</td><td class="num">9万円</td><td>所得税の申告は原則不要（住民税の申告は必要）</td></tr>
+          <tr><td>クラウドソーシング等の雑所得</td><td class="num nw">30万円</td><td class="num nw">5万円</td><td class="num nw">25万円</td><td>確定申告が必要（20万円超）</td></tr>
+          <tr><td>単発バイトの給与所得（掛け持ち）</td><td class="num nw">15万円</td><td class="num">－（控除なし）</td><td class="num nw">15万円</td><td>所得税の申告は原則不要（住民税の申告は必要）</td></tr>
+          <tr><td>フリマアプリの継続的な販売（雑所得）</td><td class="num nw">12万円</td><td class="num nw">3万円</td><td class="num nw">9万円</td><td>所得税の申告は原則不要（住民税の申告は必要）</td></tr>
         </tbody>
       </table>
     </div>
